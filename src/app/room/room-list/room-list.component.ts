@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Room, ROOMS } from '../room';
 
 @Component({
   selector: 'app-room-list',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class RoomListComponent {
 
+  rooms: Room[] = ROOMS
+
+  edit(room: Room) {
+    console.log(room);
+  }
 }

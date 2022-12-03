@@ -1,1 +1,4 @@
-<p>room-list works!</p>
+<h2>Rooms</h2>
+<div *ngFor="let room of rooms">
+  <app-room-preview [room]="room" (selectRoom)="edit($event)"></app-room-preview>
+</div>
