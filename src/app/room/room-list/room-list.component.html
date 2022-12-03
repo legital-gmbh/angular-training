@@ -1,4 +1,5 @@
 <h2>Rooms</h2>
-<div *ngFor="let room of rooms">
+<a routerLink="/room/room-add">Create new room</a>
+<div *ngFor="let room of rooms$ | async">
   <app-room-preview [room]="room" (selectRoom)="edit($event)"></app-room-preview>
 </div>

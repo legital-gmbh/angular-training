@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { Room, ROOMS } from '../room';
+import { Room } from '../room';
+import { Router } from '@angular/router';
+import { RoomService } from '../service/room.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-room-list',
@@ -8,9 +11,11 @@ import { Room, ROOMS } from '../room';
 })
 export class RoomListComponent {
 
-  rooms: Room[] = ROOMS
+  rooms$: Observable<Room[]> = this.roomService.loadAll();
+
+  constructor(private roomService: RoomService, private router: Router) { }
 
   edit(room: Room) {
-    console.log(room);
+    this.router.navigate(['room','room-edit', room.id]);
   }
 }
